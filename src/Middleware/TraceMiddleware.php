@@ -128,7 +128,7 @@ class TraceMiddleware implements MiddlewareInterface
         $span->setTag($this->spanTagManager->get('coroutine', 'id'), (string) Coroutine::id());
         $span->setTag(
             $this->spanTagManager->get('request', 'path'),
-            sprintf('[%s] %s', $path, $request->getMethod())
+            sprintf('[%s] %s', $request->getMethod(),  $path)
         );
         $span->setTag($this->spanTagManager->get('request', 'method'), $request->getMethod());
 
