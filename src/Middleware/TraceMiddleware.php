@@ -123,7 +123,7 @@ class TraceMiddleware implements MiddlewareInterface
 
         $span = $this->startSpan(sprintf('[%s] %s', $request->getMethod(), $path), [], SPAN_KIND_RPC_SERVER);
 
-        $span->setTag('kind', 'server');
+        $span->setTag('kind', 'api-server');
 
         $span->setTag($this->spanTagManager->get('coroutine', 'id'), (string) Coroutine::id());
         $span->setTag($this->spanTagManager->get('request', 'path'), $path);
